@@ -5,10 +5,8 @@ from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
 
 from plone import api
-from medialog.leadimagesize.interfaces import ILeadImageSizeSettings
+#from medialog.leadimagesize.interfaces import ILeadImageSizeSettings
 
-
-   
 _ = MessageFactory('medialog.leadimagesizes')
  
 class ICustomSize(form.Schema):
@@ -16,15 +14,14 @@ class ICustomSize(form.Schema):
     
     def defaultleadsize():
         """Returns default settings"""
-        return 'mini'
-        # (api.portal.get_registry_record('medialog.leadimagesize.interfaces.ILeadImageSizeSettings.leadsize'))
+        return  api.portal.get_registry_record('medialog.leadimagesize.interfaces.ILeadImageSizeSettings.leadsize')
             
     leadsize = schema.Choice(
         title = _("label_leadimagesize", default=u"Image Size"),
         description = _("help_leadimagesize",
                       default="Choose Size"),
         vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
-        default='defaultleadsize',
+        defaultFactory=defaultleadsize,
     )
 
 alsoProvides(ICustomSize, IFormFieldProvider)
