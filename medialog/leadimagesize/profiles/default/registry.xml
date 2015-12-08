@@ -2,7 +2,7 @@
 
 <registry>
   
-  <records interface="medialog.leadimagesize.behavior.ICustomSize">
+  <records interface="medialog.leadimagesize.interfaces.ILeadImageSizeSettings">
       <value key="leadimagesize">mini</value>
   </records>    
  

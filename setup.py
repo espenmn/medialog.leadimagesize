@@ -24,6 +24,7 @@ setup(name='medialog.leadimagesize',
       zip_safe=False,
       install_requires=[
           'medialog.controlpanel',
+          'z3c.jbot',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

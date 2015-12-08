@@ -1,11 +1,12 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="medialog.leadimagesize">
 
   <browser:viewlet
     name="contentleadimage"
-    for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
+    for="medialog.leadimagesize.behavior.ICustomSize"
     class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
     template="leadimage.pt"
