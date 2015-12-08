@@ -5,8 +5,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="medialog.leadimagesize">
 
-    <include package=".browser" />
-	<include file="behaviors.zcml" />
+    <include file="behaviors.zcml" />
     <include file="profiles.zcml" />
 
   	<utility

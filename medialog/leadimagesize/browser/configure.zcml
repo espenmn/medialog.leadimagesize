@@ -4,14 +4,6 @@
   xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="medialog.leadimagesize">
 
-  <browser:viewlet
-    name="contentleadimage"
-    for="medialog.leadimagesize.behavior.ICustomSize"
-    class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
-    manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-    template="leadimage.pt"
-    permission="zope2.View"
-    />
 
 
 </configure>

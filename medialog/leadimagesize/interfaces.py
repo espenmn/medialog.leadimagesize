@@ -16,15 +16,15 @@ class ILeadImageSizeSettings(form.Schema):
         'leadimage',
         label=_(u'LeadImage'),
         fields=[
-             'leadimagesize',
+             'leadsize',
         ],
      )
     
-    leadimagesize = schema.Choice(
+    leadsize = schema.Choice(
         title = _("label_leadimagesize", default=u"Image Size"),
         description = _("help_leadimagesize",
                       default="Choose Default Image Size"),
-        vocabulary='medialog.leadimagesize.ImageSizeVocabulary',
+        vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
         default='mini',
     )
 

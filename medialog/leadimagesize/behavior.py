@@ -8,11 +8,11 @@ _ = MessageFactory('medialog.leadimagesizes')
  
 class ICustomSize(form.Schema):
     """ A field where you can set the size for lead image"""
-    leadimagesize = schema.Choice(
+    leadsize = schema.Choice(
         title = _("label_leadimagesize", default=u"Image Size"),
         description = _("help_leadimagesize",
                       default="Choose Size"),
-        vocabulary='medialog.leadimagesize.ImageSizeVocabulary',
+        vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
         default='mini',
     )
 
