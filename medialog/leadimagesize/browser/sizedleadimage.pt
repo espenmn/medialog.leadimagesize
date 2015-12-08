@@ -3,8 +3,7 @@
                    leadsize context/leadsize|nothing"
             tal:condition="python:has_img and scales and  leadsize and leadsize != 'none'" >
 	
-	<div tal:define="klasse python:'leadimage ' + str(leadsize)" 
-		tal:attributes="class klasse" 
+	<div class="leadimage ${leadsize}" 
 		tal:condition="view/available">
 	  		<img  tal:replace="structure python: scales.scale('image', scale=leadsize).tag(css_class='newsImage')" />
 	</div>
