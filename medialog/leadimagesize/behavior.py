@@ -14,7 +14,7 @@ _ = MessageFactory('medialog.leadimagesizes')
 class ICustomSize(form.Schema):
     """ A field where you can set the size for lead image"""
     
-    def default_size():
+    def defaultleadsize():
         """Returns default settings"""
         return 'mini'
         # (api.portal.get_registry_record('medialog.leadimagesize.interfaces.ILeadImageSizeSettings.leadsize'))
@@ -24,7 +24,7 @@ class ICustomSize(form.Schema):
         description = _("help_leadimagesize",
                       default="Choose Size"),
         vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
-        default=ILeadImageSizeSettings,
+        default='defaultleadsize',
     )
 
 alsoProvides(ICustomSize, IFormFieldProvider)
