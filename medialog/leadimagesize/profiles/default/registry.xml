@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<registry>
+  
+  <records interface="medialog.leadimagesize.behavior.ICustomSize">
+      <value key="leadimagesize">mini</value>
+  </records>    
+ 
+</registry>
