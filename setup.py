@@ -24,6 +24,7 @@ setup(name='medialog.leadimagesize',
       zip_safe=False,
       install_requires=[
           'medialog.controlpanel',
+          'plone.api',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
