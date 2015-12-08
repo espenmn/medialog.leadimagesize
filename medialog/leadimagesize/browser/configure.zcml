@@ -1,9 +1,16 @@
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="medialog.leadimagesize">
 
+  <browser:viewlet
+    name="contentsizedleadimage"
+    for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
+    class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle  "
+    template="sizedleadimage.pt"
+    permission="zope2.View"
+    />
 
 
 </configure>

@@ -29,6 +29,5 @@ class ILeadImageSizeSettings(form.Schema):
     )
 
 
-
         
 alsoProvides(ILeadImageSizeSettings, IMedialogControlpanelSettingsProvider)
