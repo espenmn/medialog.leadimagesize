@@ -32,8 +32,9 @@ def LeadImageSizeVocabulary(context):
             sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
 
     if sizes:
-        if not 'none' in sizes:
-            sizes.append('none')
+        if not 'hide' in sizes:
+            sizes.append('hide')
+        import pdb; pdb.set_trace()
         terms = [ SimpleTerm(value=format_size(pair), token=format_size(pair), title=pair) for pair in sizes ]
       
     return SimpleVocabulary(terms)
