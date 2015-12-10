@@ -10,7 +10,7 @@
     for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
     layer="medialog.leadimagesize.interfaces.ILeadImageSize"
     class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
     template="sizedleadimage.pt"
     permission="zope2.View"
     />
