@@ -2,14 +2,28 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="medialog.leadimagesize">
+          
+  <include package="plone.app.contentmenu" />
 
   <browser:viewlet
-    name="contentsizedleadimage"
+    name="contentleadimage"
     for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
+    layer="medialog.leadimagesize.interfaces.ILeadImageSize"
     class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle  "
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
     template="sizedleadimage.pt"
     permission="zope2.View"
     />
+    
+  <browser:page
+    name="newsitem_view"
+    for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
+    layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+    template="newsitem.pt"
+    permission="zope2.View"
+    menu="plone_displayviews"
+    title="View News Item"
+    />
+
 
 </configure>

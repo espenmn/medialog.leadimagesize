@@ -1,3 +1,4 @@
+from zope.interface import Interface
 from z3c.form import interfaces
 from zope import schema
 from zope.interface import alsoProvides
@@ -7,6 +8,11 @@ from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvid
 from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory('medialog.leadimagesize')
+
+
+class ILeadImageSize(Interface):
+    """Marker interface for leadimagesize"""
+
 
 class ILeadImageSizeSettings(form.Schema):
     """Adds settings to medialog.controlpanel
@@ -28,6 +34,4 @@ class ILeadImageSizeSettings(form.Schema):
         default='mini',
     )
 
-
-        
 alsoProvides(ILeadImageSizeSettings, IMedialogControlpanelSettingsProvider)
