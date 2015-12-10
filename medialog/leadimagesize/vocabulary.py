@@ -13,14 +13,8 @@ def format_size(size):
 
 def LeadImageSizeVocabulary(context):
     #default vocabulary if everything else fails
-    sizes = None
-    terms = [
-            SimpleTerm('thumb', 'thumb', u'Thumb'),
-            SimpleTerm('mini', 'mini', u'Mini'),
-            SimpleTerm('preview', 'preview', u'Preview'),
-            SimpleTerm('large', 'large', u'Large'),
-            SimpleTerm('none', 'none', u'None')
-        ]
+    sizes = []
+    terms = []
         
     try:
         #Plone 5
@@ -32,11 +26,10 @@ def LeadImageSizeVocabulary(context):
             sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
 
     if sizes:
-        if not 'hide' in sizes:
-            sizes.append('hide')
-        import pdb; pdb.set_trace()
         terms = [ SimpleTerm(value=format_size(pair), token=format_size(pair), title=pair) for pair in sizes ]
-      
+    
+    
+    terms.append(SimpleVocabulary.createTerm('none', 'none', u'None'))
     return SimpleVocabulary(terms)
     
 directlyProvides(LeadImageSizeVocabulary, IVocabularyFactory)
