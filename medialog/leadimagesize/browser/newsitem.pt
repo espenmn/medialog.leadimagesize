@@ -23,7 +23,7 @@
                       scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale=leadsize)">
 
         <figure class="newsImageContainer" 
-        	tal:attributes="class python:'newsImageContainer image-' + leadsize" 
+        	tal:attributes="class python:'newsImageContainer image-' + str(leadsize)" 
              tal:condition="python: scaled_image  and leadsize != 'none'" >
             <a href="#"
                tal:define="here_url context/@@plone_context_state/object_url;
