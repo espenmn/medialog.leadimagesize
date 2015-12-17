@@ -9,8 +9,7 @@
     <include file="profiles.zcml" />
 
   	<utility
-  	  provides="zope.schema.interfaces.IVocabularyFactory"
-      component=".vocabulary.LeadImageSizeVocabulary"
+  	  component=".vocabulary.LeadImageSizeVocabulary"
       name="medialog.leadimagesize.LeadImageSizeVocabulary" />
 
 </configure>
