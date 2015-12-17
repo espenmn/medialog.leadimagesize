@@ -36,10 +36,10 @@
     
     <browser:page
     	name="summary_view"
-        layer="medialog.leadimagesize.interfaces.ILeadImageSize"
-    	for="plone.app.contenttypes.behaviors.collection.ISyndicatableCollection"
-    	class="plone.app.contenttypes.browser.collection.CollectionView"
-    	template="collection-summary_view.pt"
+    	for="plone.dexterity.interfaces.IDexterityContainer"
+      	layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+      	class="plone.app.contenttypes.browser.folder.FolderView"
+      	template="container-folder_summary_view.pt"
     	permission="zope2.View"
     />
 

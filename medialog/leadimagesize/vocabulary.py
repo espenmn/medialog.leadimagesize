@@ -12,7 +12,6 @@ def format_size(size):
 
 
 def LeadImageSizeVocabulary(context):
-    #default vocabulary if everything else fails
     sizes = []
     terms = []
         
@@ -27,9 +26,10 @@ def LeadImageSizeVocabulary(context):
 
     if sizes:
         terms = [ SimpleTerm(value=format_size(pair), token=format_size(pair), title=pair) for pair in sizes ]
-    
-    
-    terms.append(SimpleVocabulary.createTerm('none', 'none', u'None'))
+        
+    if not 'none' in terms:    
+        terms.append(SimpleVocabulary.createTerm('none', 'none', u'None'))
+
     return SimpleVocabulary(terms)
     
 directlyProvides(LeadImageSizeVocabulary, IVocabularyFactory)

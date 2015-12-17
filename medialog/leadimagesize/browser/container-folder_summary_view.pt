@@ -6,18 +6,19 @@
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="plone">
 <body>
-
+ 
 <metal:content-core fill-slot="content-core">
 <metal:block use-macro="context/@@listing_view/macros/content-core">
 
-  <metal:entries fill-slot="entries">
-    <metal:block use-macro="context/@@listing_view/macros/entries"
-       tal:define="leadsize context/leadsize|nothing">
+  <metal:entries fill-slot="entries"  
+  			tal:define="leadsize context/leadsize|nothing">
+    <metal:block use-macro="context/@@listing_view/macros/entries">
       <metal:entry fill-slot="entry">
 
         <article class="tileItem visualIEFloatFix" tal:define="obj item/getObject">
 
-          <div class="tileImage" tal:condition="item_has_image">
+          <div tal:attributes="class python:'tileImage image-' + str(leadsize)"
+          	tal:condition="item_has_image">
             <a tal:attributes="href item_link">
               <img tal:define="scales obj/@@images;
                                scale python:scales.scale('image', leadsize)"
@@ -33,6 +34,7 @@
               Item Title
             </a>
           </h2>
+
           <div metal:use-macro="context/@@listing_view/macros/document_byline"></div>
 
           <p class="tileBody" tal:condition="item_description">
