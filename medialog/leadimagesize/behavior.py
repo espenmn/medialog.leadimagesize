@@ -1,14 +1,17 @@
+# -*- coding: utf-8 -*-
+#from plone.dexterity.interfaces import IDexterityContent
+from plone.supermodel import model
+from zope.interface import provider
 from zope import schema
-from plone.directives import form
-from plone.autoform.interfaces import IFormFieldProvider
-from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
+from plone.autoform.interfaces import IFormFieldProvider
 
 from plone import api
 
 _ = MessageFactory('medialog.leadimagesizes')
- 
-class ICustomSize(form.Schema):
+
+@provider(IFormFieldProvider)
+class ICustomSize(model.Schema):
     """ A field where you can set the size for lead image"""
     
     leadsize = schema.Choice(
@@ -18,6 +21,4 @@ class ICustomSize(form.Schema):
         vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
         defaultFactory=lambda: api.portal.get_registry_record('medialog.leadimagesize.interfaces.ILeadImageSizeSettings.leadsize') ,
     )
-
-alsoProvides(ICustomSize, IFormFieldProvider)
 
