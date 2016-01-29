@@ -27,7 +27,6 @@ def LeadImageSizeVocabulary(context):
     if sizes:
         terms = [ SimpleTerm(value=format_size(pair), token=format_size(pair), title=pair) for pair in sizes ]
         
-    import pdb; pdb.set_trace()
     if not 'none' in terms:    
         terms.append(SimpleVocabulary.createTerm('none', 'none', u'None'))
 
