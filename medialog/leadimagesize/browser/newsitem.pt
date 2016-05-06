@@ -44,7 +44,7 @@
              tal:content="structure context/text/output" />
 
         <div class="newsFileContainer"
-             tal:condition="python: getattr(context.aq_explicit, 'image', False) and leadsize != 'none and not scaled_image">
+             tal:condition="python: getattr(context.aq_explicit, 'image', False) and leadsize != 'none' and not scaled_image">
             <a tal:content="structure python:context.image_caption or context.image.filename"
                tal:attributes="href python:'%s/@@download/image' % context.absolute_url()">
             </a>
