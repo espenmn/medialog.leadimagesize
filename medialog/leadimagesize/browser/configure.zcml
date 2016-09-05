@@ -43,4 +43,12 @@
     	permission="zope2.View"
     />
 
+    <browser:page
+        name="rotate_right"
+        for="plone.app.contenttypes.interfaces.IImage"
+        layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+        class=".views.RotateR"
+        permission="zope2.View"
+    />
+
 </configure>
