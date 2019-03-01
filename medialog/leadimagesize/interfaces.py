@@ -2,7 +2,8 @@ from zope.interface import Interface
 from z3c.form import interfaces
 from zope import schema
 from zope.interface import alsoProvides
-from plone.directives import form
+#from plone.directives import form
+from plone.supermodel import model
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider
 
 from zope.i18nmessageid import MessageFactory
@@ -14,11 +15,11 @@ class ILeadImageSize(Interface):
     """Marker interface for leadimagesize"""
 
 
-class ILeadImageSizeSettings(form.Schema):
+class ILeadImageSizeSettings(model.Schema):
     """Adds settings to medialog.controlpanel
     """
 
-    form.fieldset(
+    model.fieldset(
         'leadimage',
         label=_(u'LeadImage'),
         fields=[
