@@ -1,4 +1,5 @@
-from cStringIO import StringIO
+#from cStringIO import StringIO
+from io import StrinIO
 from PIL import Image
 from PIL.PngImagePlugin import PngImageFile
 
