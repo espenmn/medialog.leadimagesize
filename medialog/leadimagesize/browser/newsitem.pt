@@ -6,15 +6,6 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
 <body>
-
-<metal:head fill-slot="javascript_head_slot">
-<script type="text/javascript">
-  jQuery(function($){
-    $('.newsImageContainer a').prepOverlay({subtype: 'image'});
-  })
-</script>
-</metal:head>
-
 <metal:content-core fill-slot="content-core">
     <metal:block define-macro="content-core"
           tal:define="templateId template/getId;
@@ -38,7 +29,6 @@
             </a>
         </figure>
 
-
         <div id="parent-fieldname-text"
              tal:condition="context/text"
              tal:content="structure context/text/output" />
@@ -49,10 +39,8 @@
                tal:attributes="href python:'%s/@@download/image' % context.absolute_url()">
             </a>
         </div>
-
     </metal:block>
 </metal:content-core>
-
 </body>
 </html>
 
