@@ -6,12 +6,12 @@
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="plone">
 <body>
- 
+
 <metal:content-core fill-slot="content-core">
 <metal:block use-macro="context/@@listing_view/macros/content-core">
 
-  <metal:entries fill-slot="entries"  
-  			tal:define="leadsize context/leadsize|nothing">
+  <metal:entries fill-slot="entries"
+  			tal:define="leadsize context/leadsize|portal/@@image_scale">
     <metal:block use-macro="context/@@listing_view/macros/entries">
       <metal:entry fill-slot="entry">
 
