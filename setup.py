@@ -1,7 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
+<<<<<<< HEAD
 version = '0.4.1'
+=======
+version = '0.4.2' 
+>>>>>>> origin/master
 
 setup(name='medialog.leadimagesize',
       version=version,
