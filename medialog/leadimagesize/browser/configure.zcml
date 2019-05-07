@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="medialog.leadimagesize">
-          
+
   <include package="plone.app.contentmenu" />
 
     <browser:viewlet
@@ -14,7 +14,7 @@
         template="sizedleadimage.pt"
         permission="zope2.View"
     />
-    
+
     <browser:viewlet
         name="contentleadimage"
         for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
@@ -27,19 +27,28 @@
     />
 
     <browser:page
+        name="album_view"
+        for="plone.dexterity.interfaces.IDexterityContainer"
+        class=".folder.FolderView"
+        title="Album view"
+        layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+        template="listing_album.pt"
+        />
+
+    <browser:page
         name="newsitem_view"
         for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
         layer="medialog.leadimagesize.interfaces.ILeadImageSize"
         template="newsitem.pt"
         permission="zope2.View"
     />
-    
+
     <browser:page
     	name="summary_view"
     	for="plone.dexterity.interfaces.IDexterityContainer"
-      	layer="medialog.leadimagesize.interfaces.ILeadImageSize"
-      	class="plone.app.contenttypes.browser.folder.FolderView"
-      	template="container-folder_summary_view.pt"
+      layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+      class="plone.app.contenttypes.browser.folder.FolderView"
+      template="container-folder_summary_view.pt"
     	permission="zope2.View"
     />
 
