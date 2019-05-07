@@ -30,7 +30,6 @@
         name="album_view"
         for="plone.dexterity.interfaces.IDexterityContainer"
         class="plone.app.contenttypes.browser.folder.FolderView"
-        title="Album view"
         layer="medialog.leadimagesize.interfaces.ILeadImageSize"
         template="listing_album.pt"
         permission="zope2.View"
