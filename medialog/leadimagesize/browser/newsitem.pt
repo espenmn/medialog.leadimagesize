@@ -10,12 +10,14 @@
     <metal:block define-macro="content-core"
           tal:define="templateId template/getId;
                       scale_func context/@@images;
+                      has_portlet view/has_portlet|None;
                       leadsize context/leadsize|nothing;
                       scaled_image python: getattr(context.aq_explicit, 'image', False) and scale_func.scale('image', scale=leadsize)">
 
-        <figure class="newsImageContainer" 
-        	tal:attributes="class python:'newsImageContainer image-' + str(leadsize)" 
-             tal:condition="python: scaled_image  and leadsize != 'none'" >
+       <tal:check tal:condition="not: view/has_portlet|None">
+        <figure class="newsImageContainer"
+        	tal:attributes="class python:'newsImageContainer image-' + str(leadsize)"
+             tal:condition="python: scaled_image and leadsize != 'none'" >
             <a href="#"
                tal:define="here_url context/@@plone_context_state/object_url;
                            large_image python: scale_func.scale('image', scale='large');"
@@ -28,6 +30,7 @@
 
             </a>
         </figure>
+        </tal:check>
 
         <div id="parent-fieldname-text"
              tal:condition="context/text"
@@ -43,4 +46,3 @@
 </metal:content-core>
 </body>
 </html>
-

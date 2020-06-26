@@ -1,3 +1,4 @@
+<tal:check tal:condition="not: view/has_portlet">
 <tal:check tal:define="has_img context/image|nothing;
                    scales context/@@images|nothing;
                    leadsize context/leadsize|nothing"
@@ -5,4 +6,5 @@
 	<div tal:attributes="class python:'leadimage image-' + leadsize" tal:condition="view/available">
 	 <img  tal:replace="structure python: scales.scale('image', scale=leadsize).tag(css_class='newsImage')" />
 	</div>
+</tal:check>
 </tal:check>

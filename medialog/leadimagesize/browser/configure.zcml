@@ -20,7 +20,7 @@
         for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
         layer="medialog.leadimagesize.interfaces.ILeadImageSize"
         view="plone.app.layout.globals.interfaces.IViewView"
-        class="plone.app.contenttypes.behaviors.viewlets.LeadImageViewlet"
+        class=".sizedleadimage.LeadImageViewlet"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         template="sizedleadimage.pt"
         permission="zope2.View"
@@ -39,6 +39,7 @@
         name="newsitem_view"
         for="plone.app.contenttypes.behaviors.leadimage.ILeadImage"
         layer="medialog.leadimagesize.interfaces.ILeadImageSize"
+        class=".newsitem.NewsItemView"
         template="newsitem.pt"
         permission="zope2.View"
     />
