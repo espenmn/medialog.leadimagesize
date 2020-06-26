@@ -1,7 +1,8 @@
+
+
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 from Acquisition import aq_inner
-from medialog.leadimagesize import _
 from plone import schema
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
@@ -10,6 +11,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import field
 from zope.component import getMultiAdapter
 from zope.interface import implementer
+from plone import api
 
 import json
 import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
@@ -17,11 +19,10 @@ import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 
 
 class ILeadimagePortlet(IPortletDataProvider):
-    place_str = schema.TextLine(
-        title=_(u'Name of your place with country code'),
-        description=_(u'City name along with country code i.e Delhi,IN'),  # NOQA: E501
-        required=True,
-        default=u'delhi,in'
+    image_size = schema.Choice(
+        default="preview",
+        vocabulary='medialog.leadimagesize.LeadImageSizeVocabulary',
+        defaultFactory=lambda: api.portal.get_registry_record('medialog.leadimagesize.interfaces.ILeadImageSizeSettings.leadsize') ,
     )
 
 
@@ -29,31 +30,32 @@ class ILeadimagePortlet(IPortletDataProvider):
 class Assignment(base.Assignment):
     schema = ILeadimagePortlet
 
-    def __init__(self, place_str='delhi,in'):
-        self.place_str = place_str.lower()
+    def __init__(self, image_size='preview'):
+        self.image_size = image_size
+
 
     @property
     def title(self):
-        return _(u'Weather of the place')
+        return 'Lead Image'
 
 
 class AddForm(base.AddForm):
     schema = ILeadimagePortlet
     form_fields = field.Fields(ILeadimagePortlet)
-    label = _(u'Add Place weather')
-    description = _(u'This portlet displays weather of the place.')
+    label = (u'Add Lead Image')
+    description = (u'This portlet displays the lead image.')
 
     def create(self, data):
         return Assignment(
-            place_str=data.get('place_str', 'delhi,in'),
+            image_size=data.get('image_size', 'preview'),
         )
 
 
 class EditForm(base.EditForm):
     schema = ILeadimagePortlet
     form_fields = field.Fields(ILeadimagePortlet)
-    label = _(u'Edit Place weather')
-    description = _(u'This portlet displays weather of the place.')
+    label = (u'Edit Lead Image portlet')
+    description = (u'This portlet displays the lead image.')
 
 
 class Renderer(base.Renderer):
@@ -76,31 +78,7 @@ class Renderer(base.Renderer):
     def available(self):
         """Show the portlet only if there are one or more elements and
         not an anonymous user."""
-        return not self.anonymous and self._data()
+        return self.context.image
 
-    def weather_report(self):
-        self.result = self._data()
-        return self.result['description']
-
-    def get_humidity(self):
-        return self.result['humidity']
-
-    def get_pressure(self):
-        return self.result['pressure']
-
-    @memoize
-    def _data(self):
-        baseurl = 'https://query.yahooapis.com/v1/public/yql?'
-        yql_query = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="{0}")'.format(  # NOQA: E501
-            self.data.place_str,
-        )
-        yql_url = baseurl + six.moves.urllib.parse.urlencode(
-            {'q': yql_query},
-        ) + '&format=json'
-        result = six.moves.urllib.request.urlopen(yql_url).read()
-        data = json.loads(result)
-        result = {}
-        result['description'] = data['query']['results']['channel']['description']  # NOQA: E501
-        result['pressure'] = data['query']['results']['channel']['atmosphere']['pressure']  # NOQA: E501
-        result['humidity'] = data['query']['results']['channel']['atmosphere']['humidity']  # NOQA: E501
-        return result
+    def image_size(self):
+        return self['image_size']
