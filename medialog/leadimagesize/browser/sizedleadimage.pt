@@ -1,4 +1,4 @@
-<tal:check tal:condition="not: view/has_portlet">
+<tal:check tal:condition="not: view/has_portlet|None">
 <tal:check tal:define="has_img context/image|nothing;
                    scales context/@@images|nothing;
                    leadsize context/leadsize|nothing"
