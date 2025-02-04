@@ -1,6 +1,6 @@
-from zope.interface import implements, Interface
+from zope.interface import  Interface
 from Products.Five import BrowserView
-from zope import schema
+# from zope import schema
 
 import Acquisition
 from zope.component import getUtility, getMultiAdapter

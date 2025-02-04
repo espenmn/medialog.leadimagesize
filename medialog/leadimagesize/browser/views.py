@@ -2,9 +2,9 @@ from io import StringIO
 from PIL import Image
 from PIL.PngImagePlugin import PngImageFile
 
-from zope.interface import implements, Interface
+from zope.interface import Interface
 from Products.Five import BrowserView
-from zope import schema
+# from zope import schema
 
 
 class IRotateR(Interface):

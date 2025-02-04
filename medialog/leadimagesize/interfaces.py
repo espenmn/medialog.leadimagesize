@@ -1,5 +1,5 @@
 from zope.interface import Interface
-from z3c.form import interfaces
+# from z3c.form import interfaces
 from zope import schema
 from zope.interface import alsoProvides
 #from plone.directives import form
@@ -25,7 +25,7 @@ class ILeadImageSizeSettings(model.Schema):
         fields=[
              'leadsize',
         ],
-     )
+    )
     
     leadsize = schema.Choice(
         title = _("label_leadimagesize", default=u"Image Size"),
