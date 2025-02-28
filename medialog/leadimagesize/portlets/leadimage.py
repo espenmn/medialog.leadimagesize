@@ -5,7 +5,7 @@ from __future__ import absolute_import
 from Acquisition import aq_inner
 from plone import schema
 from plone.app.portlets.portlets import base
-from plone.memoize.instance import memoize
+# from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import field

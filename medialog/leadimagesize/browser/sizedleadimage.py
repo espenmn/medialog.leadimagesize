@@ -1,5 +1,5 @@
 from plone.app.contenttypes.behaviors.viewlets import LeadImageViewlet
-from zope.interface import  Interface
+# from zope.interface import  Interface
 #from Products.Five import BrowserView
 #from zope import schema
 
