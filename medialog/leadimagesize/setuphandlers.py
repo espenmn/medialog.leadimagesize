@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # from Products.CMFPlone.interfaces import INonInstallable
-# from zope.interface import implementer
 from zope.interface import noLongerProvides, alsoProvides
 from medialog.leadimagesize.interfaces import ILeadImageSizeSettings
 from medialog.controlpanel.interfaces import IMedialogControlpanelSettingsProvider

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.5'
+version = '0.6'
 
 
 setup(name='medialog.leadimagesize',
@@ -12,7 +12,7 @@ setup(name='medialog.leadimagesize',
       classifiers=[
          "Development Status :: 4 - Beta",
           "Framework :: Plone",
-          "Framework :: Plone :: 5.0",
+          "Framework :: Plone :: 6.0",
           "Programming Language :: Python",
           "Programming Language :: Python :: 3.7",
         ],
